@@ -2,7 +2,7 @@ const cellSize = 50
 const gap = 6
 const offset =100
 
-let problemIndex = 2
+let problemIndex = 0
 let problemType = 1
 const problems = [
     {
@@ -161,10 +161,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const canvas = document.querySelector('canvas')
     const ctx = canvas.getContext('2d')
     canvasSetUp(canvas)
-
-    const params = new URLSearchParams(window.location.search)
-    problemIndex = params.get('index') || problemIndex
-    problemType = params.get('type') || problemType
    
 
     const dimensions = problems[problemIndex]['dimensions']
