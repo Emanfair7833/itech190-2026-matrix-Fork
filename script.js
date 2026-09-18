@@ -2,8 +2,8 @@ const cellSize = 50
 const gap = 6
 const offset =100
 
-const problemIndex = 2
-const problemType = 1
+let problemIndex = 2
+let problemType = 1
 const problems = [
     {
         'dimensions':[
@@ -161,6 +161,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const canvas = document.querySelector('canvas')
     const ctx = canvas.getContext('2d')
     canvasSetUp(canvas)
+
+    const params = new URLSearchParams(window.location.search)
+    problemIndex = params.get('index') || problemIndex
+    problemType = params.get('type') || problemType
    
 
     const dimensions = problems[problemIndex]['dimensions']
@@ -267,7 +271,7 @@ const draw2d = (ctx, adjList) =>{
         ctx.font = "10px Arial"
         ctx.textAlign = 'center'
         ctx.textBaseline = 'middle'
-        ctx.fillStyle = node['color']
+        ctx.fillStyle = 'white'
         ctx.fillText(node['name'], node['position'][0], node['position'][1]-15)
     }
 }
@@ -328,13 +332,6 @@ const AutoFillList = (list, steps, fn, intervalMs=1000) =>{
     }
 }
 
-const updateGraph = () =>{}
-
-const drawVerticies = () =>{}
-
-const drawEdges = () =>{}
-
-const drawGridLines = () =>{}
 
 const RAF = (canvas, ctx, adjList, dimSize) =>{
     ctx.fillStyle = '#2d2c2c'
