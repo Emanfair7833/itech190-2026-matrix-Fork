@@ -162,6 +162,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const ctx = canvas.getContext('2d')
     canvasSetUp(canvas)
    
+    const params = new URLSearchParams
+    problemIndex = params.get('index') || problemIndex
+    problemtype = params.get('type') || problemType
 
     const dimensions = problems[problemIndex]['dimensions']
     const steps = problems[problemIndex]['steps']
